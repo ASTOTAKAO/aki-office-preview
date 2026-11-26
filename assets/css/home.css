@@ -1,0 +1,206 @@
+/* トップページ専用 — 参考サイト（bridgesystem.heteml.net/akioffice/）の構成・見た目に合わせる */
+:root{
+  --navy-dark:#122244; --navy-mid:#224080; --navy-pale:#eef2f8;
+  --gold-light:#e4c96a; --gold-pale:#fdf6e3;
+  --white:#fff; --off-white:#f7f8fa; --text:#2c2c2c; --text-mid:#555; --text-light:#6b6b6b; --border:#e2e5ec;
+  --max-w:1140px; --ease:cubic-bezier(.25,.46,.45,.94); --ease-out:cubic-bezier(.16,1,.3,1);
+}
+.container2{max-width:var(--max-w);margin-inline:auto;padding-inline:40px}
+#main a{text-decoration:none}
+
+/* 節見出し */
+.sec-head2{text-align:center;margin-bottom:56px}
+
+.sec-head2__title{font-family:var(--serif);font-size:clamp(22px,2.8vw,32px);font-weight:600;color:var(--navy);line-height:1.5;margin:0 0 16px}
+.sec-head2__rule{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:20px}
+.sec-head2__rule::before,.sec-head2__rule::after{content:"";width:40px;height:1px;background:var(--gold)}
+.sec-head2__rule span{width:6px;height:6px;border-radius:50%;background:var(--gold)}
+
+
+/* 大見出し（左：濃紺の文章／右：写真） */
+.hero2{min-height:calc(90vh - 76px);display:grid;grid-template-columns:1fr 1fr;overflow:hidden;background:var(--navy-dark)}
+.hero2__content{display:flex;flex-direction:column;justify-content:center;padding:80px 56px 80px 40px;position:relative;z-index:1;
+  background:linear-gradient(to right,var(--navy-dark) 85%,rgba(18,34,68,0) 100%);max-width:calc(var(--max-w)/2 + 40px);margin-left:auto}
+.hero2__img-panel{position:relative;overflow:hidden}
+.hero2__img-panel img{width:100%;height:100%;object-fit:cover;object-position:center 60%;display:block}
+.hero2__img-panel::after{content:"";position:absolute;inset:0;background:rgba(19,34,68,.55);z-index:1;pointer-events:none}
+.hero2__img-panel::before{content:"";position:absolute;top:0;bottom:0;left:0;width:120px;background:linear-gradient(to right,#132244 0%,transparent 100%);z-index:2;pointer-events:none}
+
+
+.hero2__h1{font-family:var(--serif);font-size:clamp(26px,3.2vw,42px);font-weight:600;color:var(--white);line-height:1.6;letter-spacing:.03em;margin:0 0 28px}
+
+
+
+
+
+
+
+
+@keyframes heroFadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.hero2__h1{animation:heroFadeUp .8s .25s both}
+
+
+/* サービス一覧 */
+.services2{padding:100px 0;background:var(--off-white)}
+.service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.service-card{background:var(--white);border:1px solid var(--border);padding:36px 28px;display:flex;flex-direction:column;align-items:flex-start;gap:16px;transition:box-shadow .3s,transform .3s,border-color .3s;position:relative;overflow:hidden}
+.service-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease-out)}
+.service-card:hover{box-shadow:0 12px 40px rgba(27,51,100,.12);transform:translateY(-4px);border-color:transparent}
+.service-card:hover::before{transform:scaleX(1)}
+.service-card__icon{width:56px;height:56px;background:var(--navy-pale);border-radius:4px;display:flex;align-items:center;justify-content:center;transition:background .3s}
+.service-card:hover .service-card__icon{background:var(--gold-pale)}
+.service-card__icon svg{width:28px;height:28px;color:var(--navy);transition:color .3s}
+.service-card:hover .service-card__icon svg{color:var(--gold-d)}
+.service-card__name{font-family:var(--serif);font-size:17px;font-weight:600;color:var(--navy);line-height:1.5;margin:0}
+.service-card__body{font-size:13px;line-height:1.9;color:var(--text-mid);flex:1}
+.service-card__link{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-family:var(--serif);color:var(--navy);border-bottom:1px solid var(--border);padding-bottom:3px;transition:color .2s,border-color .2s,gap .2s}
+.service-card:hover .service-card__link{color:var(--gold-d);border-color:var(--gold);gap:10px}
+.service-card__link svg{width:12px;height:12px}
+
+/* 選ばれる理由 */
+.reasons2{padding:100px 0;background:var(--navy);position:relative;overflow:hidden}
+.reasons2::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 20% 50%,rgba(201,162,39,.08) 0%,transparent 70%),radial-gradient(ellipse 50% 50% at 80% 50%,rgba(255,255,255,.03) 0%,transparent 70%);pointer-events:none}
+
+.reasons2 .sec-head2__title{color:var(--white)}
+.reasons-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;position:relative;z-index:1}
+.reason-card{text-align:center;padding:40px 24px 36px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05);transition:background .3s,border-color .3s,transform .3s}
+.reason-card:hover{background:rgba(255,255,255,.08);border-color:rgba(201,162,39,.4);transform:translateY(-4px)}
+.reason-card__icon{width:72px;height:72px;border-radius:50%;border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;margin:0 auto 24px;background:rgba(201,162,39,.08)}
+.reason-card__icon svg{width:32px;height:32px;color:var(--gold)}
+.reason-card__title{font-family:var(--serif);font-size:16px;font-weight:600;color:var(--white);margin:0 0 12px;line-height:1.4}
+.reason-card__body{font-size:13px;line-height:1.9;color:rgba(255,255,255,.72)}
+
+/* ご依頼の流れ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 事務所紹介 */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ニュース＋よくあるご質問 */
+.infosec{padding:100px 0;background:var(--white)}
+.infosec__grid{display:grid;grid-template-columns:1fr 1fr;gap:64px}
+.infosec__col-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;padding-bottom:16px;border-bottom:2px solid var(--navy)}
+.infosec__col-title{font-family:var(--serif);font-size:20px;font-weight:700;color:var(--navy);display:flex;align-items:center;gap:10px;margin:0}
+
+
+
+
+.news-item{display:grid;grid-template-columns:auto 1fr;gap:16px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start}
+.news-item:hover .news-item__title{color:var(--gold-d)}
+.news-item__meta{display:flex;flex-direction:column;gap:4px;align-items:flex-start}
+.news-item__date{font-family:var(--en);font-size:12px;color:var(--text-light);letter-spacing:.06em;white-space:nowrap;line-height:1.4}
+
+.news-item__title{font-size:14px;color:var(--text);line-height:1.6;transition:color .2s;padding-top:2px}
+
+
+
+
+
+
+
+/* 相談の呼びかけ */
+.cta-banner{padding:80px 0;background:var(--navy-dark);position:relative;overflow:hidden}
+.cta-banner::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 70% 80% at 50% 50%,rgba(201,162,39,.1) 0%,transparent 70%);pointer-events:none}
+.cta-banner__inner{display:grid;grid-template-columns:1fr auto;gap:60px;align-items:center;position:relative;z-index:1}
+
+
+.cta-banner__title{font-family:var(--serif);font-size:clamp(22px,2.8vw,34px);font-weight:600;color:var(--white);line-height:1.55;margin:0 0 12px}
+.cta-banner__sub{font-size:14px;color:rgba(255,255,255,.72);line-height:2;margin:0}
+.cta-banner__right{display:flex;flex-direction:column;align-items:center;gap:12px;flex-shrink:0}
+
+.cta-banner__tel{display:flex;align-items:center;gap:10px;color:var(--white);font-family:var(--en);font-size:36px;font-weight:600;letter-spacing:.04em;line-height:1;transition:color .2s}
+.cta-banner__tel:hover{color:var(--gold-light)}
+.cta-banner__tel svg{width:28px;height:28px;color:var(--gold)}
+
+.cta-banner__form-btn{display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:var(--navy-dark);font-family:var(--serif);font-size:13px;font-weight:700;padding:13px 28px;letter-spacing:.08em;transition:background .25s;width:100%;justify-content:center}
+.cta-banner__form-btn:hover{background:var(--gold-light);color:var(--navy-dark)}
+.cta-banner__form-btn svg{width:14px;height:14px}
+.cta-banner a:focus-visible,.hero2 a:focus-visible,.reasons2 a:focus-visible{outline-color:var(--gold)}
+
+@media (max-width:1024px){
+  .hero2{grid-template-columns:1fr;min-height:auto}
+  .hero2__content{max-width:100%;margin-left:0;padding:64px 40px;background:var(--navy-dark)}
+  .hero2__img-panel{padding:0 24px 48px}
+  .hero2__img-panel::before{display:none}
+  .hero2__img-panel::after{inset:0 24px 48px}
+  .reasons-grid{grid-template-columns:repeat(2,1fr)}
+
+
+
+  .infosec__grid{grid-template-columns:1fr;gap:56px}
+  .cta-banner__inner{grid-template-columns:1fr;text-align:center;gap:40px}
+
+}
+@media (max-width:768px){
+  .container2{padding-inline:20px}
+  .hero2__content{padding:48px 20px 40px}
+  .hero2__img-panel{padding:0 20px 40px}
+  .hero2__img-panel::after{inset:0 20px 40px}
+
+
+  .service-grid{grid-template-columns:1fr}
+  .reasons-grid{grid-template-columns:1fr}
+
+
+  .services2,.reasons2,.flow2,.about2,.infosec{padding:72px 0}
+  .cta-banner__tel{font-size:30px}
+}
+@media (prefers-reduced-motion:reduce){
+  .hero2__tag,.hero2__h1,.hero2__sub,.hero2__actions{animation:none}
+  .service-card,.reason-card,.about__photo-main img,.about__photo-sub img{transition:none}
+}
+/* レビュー指摘対応: 手順間の小さな矢印線（参考どおり） */
+
+
+/* 元のサイトの文章に合わせた追加（2026-11-24） */
+.hero2__chips{list-style:none;margin:0 0 44px;padding:0;display:flex;flex-wrap:wrap;gap:8px;max-width:480px}
+.hero2__chips li{font-size:13px;line-height:1.5;color:rgba(255,255,255,.88);border:1px solid rgba(200,169,106,.55);padding:6px 12px}
+
+.infosec__col-title a{color:inherit}
+.infosec__col-title a:hover{color:var(--gold-d)}
+@media (prefers-reduced-motion:no-preference){.hero2__chips{animation:heroFadeUp .7s .45s both}}
+/* 元のトップページの中身に合わせた追加（2026-11-25） */
+.reason-card__head{display:flex;flex-direction:column;align-items:center;gap:10px;margin-bottom:6px}
+.reason-card__num{font-family:var(--en);font-size:28px;font-weight:600;color:var(--gold-light);line-height:1;letter-spacing:.06em}
+.season-banner{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:8px 28px;margin-top:40px;background:var(--navy);color:#fff;padding:28px 36px;border-left:3px solid var(--gold);transition:background .25s}
+.season-banner:hover{background:var(--navy-mid);color:#fff}
+.season-banner__title{font-family:var(--serif);font-size:22px;font-weight:600;letter-spacing:.1em}
+.season-banner__text{font-size:14px;color:rgba(255,255,255,.82)}
+.season-banner__more{display:inline-flex;align-items:center;gap:6px;font-family:var(--en);font-size:14px;color:var(--gold-light)}
+.season-banner__more svg{width:12px;height:12px}
+.infosec__col-title a{color:inherit}
+.infosec .news-item{flex-direction:column}
+.cta-banner__srp{width:96px;height:auto;background:#fff;padding:6px;margin-top:8px}
+@media (max-width:768px){.season-banner{grid-template-columns:1fr;padding:24px}}
