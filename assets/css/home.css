@@ -204,3 +204,5 @@
 .infosec .news-item{flex-direction:column}
 .cta-banner__srp{width:96px;height:auto;background:#fff;padding:6px;margin-top:8px}
 @media (max-width:768px){.season-banner{grid-template-columns:1fr;padding:24px}}
+.service-card__name a{color:inherit;text-decoration:none}
+.service-card__name a:hover{text-decoration:underline}
